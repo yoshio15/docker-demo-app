@@ -1,0 +1,11 @@
+# https://qiita.com/A-Kira/items/beaf79a0d39d9839e61e#1-docker-composeyml%E4%BD%9C%E6%88%90
+version: '3.6'
+services:
+  java:
+    image: openjdk:14-slim
+    ports:
+      - 8080:8080
+    tty: true
+    volumes:
+      - ./server:/srv:cached
+    working_dir: /srv
