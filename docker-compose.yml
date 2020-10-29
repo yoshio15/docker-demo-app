@@ -2,9 +2,9 @@ version: '3.7'
 services:
   demo-db:
     container_name: demo-db
-    image: mysql:5.7.28
+    image: mysql
     volumes:
-    - ./mysql/data:/var/lib/mysql
+    - ./docker/mysql/data:/var/lib/mysql
     environment:
       MYSQL_ROOT_PASSWORD: rootpass
       MYSQL_DATABASE: demo-db
