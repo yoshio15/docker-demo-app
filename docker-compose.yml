@@ -1,11 +1,14 @@
-# https://qiita.com/A-Kira/items/beaf79a0d39d9839e61e#1-docker-composeyml%E4%BD%9C%E6%88%90
-version: '3.6'
+version: '3.7'
 services:
-  java:
-    image: openjdk:14-slim
-    ports:
-      - 8080:8080
-    tty: true
+  demo-db:
+    container_name: demo-db
+    image: mysql:5.7.28
     volumes:
-      - ./server:/srv:cached
-    working_dir: /srv
+    - ./mysql/data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpass
+      MYSQL_DATABASE: demo-db
+      MYSQL_USER: user
+      MYSQL_PASSWORD: pass
+    ports:
+    - 3307:3306
